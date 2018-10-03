@@ -1,0 +1,21 @@
+<root>
+	<GarantiaSafra registro="201301">
+			<estado sigla="AL">
+				<municipio cod="2713">
+					<nome>BATALHA</nome>
+					<beneficiarios>
+						<beneficiario>
+							<nis>20635826733</nis>
+							<nome>ADELMO DOS SANTOS DA SILVA</nome>
+							<valor>135,00</valor>
+						</beneficiario>
+						<beneficiario>
+							<nis>16161064953</nis>
+							<nome>ADELSON DE OLIVEIRA</nome>
+							<valor>135,00</valor>
+						</beneficiario>
+					</beneficiarios>
+				</municipio>
+			<estado>
+	</GarantiaSafra>
+</root>
