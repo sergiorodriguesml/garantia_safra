@@ -1,0 +1,15 @@
+<!DOCTYPE root[
+  <!ELEMENT root (GarantiaSafra+)>
+  <!ELEMENT GarantiaSafra (estado+)+>
+  <!ELEMENT estado (municipio+)+>
+  <!ELEMENT municipio (nome+,beneficiarios+)+>
+  <!ELEMENT nome (#PCDATA)>
+  <!ELEMENT beneficiarios (beneficiario+)+>
+  <!ELEMENT beneficiario (nis+,nome+,valor+)+>
+  <!ELEMENT nis (#PCDATA)>
+  <!ELEMENT nome (#PCDATA)>
+  <!ELEMENT valor (#PCDATA)>
+  <!ATTLIST GarantiaSafra registro (CDDATA) #REQUIRED>
+  <!ATTLIST estado sigla (CDDATA) #REQUIRED>
+  <!ATTLIST municipio cod (CDDATA) #REQUIRED>
+]>

@@ -41,9 +41,10 @@ public class Main {
 		Element safra = null;
 		Element uf = null;
 		Element municipio = null;
+		Element beneficiarios = null;
 
 		int i=0;
-		while(br.ready() && i<10){
+		while(br.ready() && i<10000){
 			linha = br.readLine();
 			elementos = linha.split(";");
 			if(!ano.equals(elementos[0])){
@@ -74,10 +75,9 @@ public class Main {
 				nome.appendChild(doc.createTextNode(nomeM));
 				municipio.appendChild(nome);
 				uf.appendChild(municipio);
+				beneficiarios = doc.createElement("beneficiarios");
+				municipio.appendChild(beneficiarios);
 			}
-			
-			Element beneficiarios = doc.createElement("beneficiarios");
-			municipio.appendChild(beneficiarios);
 			
 			Element beneficiario = doc.createElement("beneficiario");
 			beneficiarios.appendChild(beneficiario);

@@ -1,4 +1,5 @@
-<root>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="xml_Schema.xsd">
 	<GarantiaSafra registro="201301">
 			<estado sigla="AL">
 				<municipio cod="2713">

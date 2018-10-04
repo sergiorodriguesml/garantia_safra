@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="nis" type="xs:string"/>
+	<xs:element name="nome" type="xs:string"/>
+	<xs:element name="valor" type="xs:string"/>
+	<xs:element name="beneficiario">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="nis"/>
+				<xs:element ref="nome"/>
+				<xs:element ref="valor"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="beneficiarios">
+		<xs:complexType>
+			<xs:element ref="beneficiario" minOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="municipio">
+		<xs:complexType>
+			<xs:element ref="nome"/>
+			<xs:element ref="beneficiarios" maxOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estado">
+		<xs:complexType>
+			<xs:element ref="municipio" minOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GarantiaSafra">
+		<xs:complexType>
+			<xs:element ref="estado" minOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="root">
+		<xs:complexType>
+			<xs:element ref="GarantiaSafra" minOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
