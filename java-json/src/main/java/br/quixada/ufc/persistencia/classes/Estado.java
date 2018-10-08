@@ -8,7 +8,6 @@ public class Estado {
 	public Estado() {}
 
 	public Estado(String sigla, ArrayList<Municipio> municipios) {
-		super();
 		this.sigla = sigla;
 		this.municipios = municipios;
 	}

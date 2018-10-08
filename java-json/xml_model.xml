@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<GarantiaSafra registro="201301">
+		<estado sigla="AL">
+			<municipio cod="2713">
+				<nome>BATALHA1</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2714">
+				<nome>BATALHA2</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2715">
+				<nome>BATALHA3</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+		</estado>
+		<estado sigla="CE">
+			<municipio cod="2713">
+				<nome>Caninde</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2714">
+				<nome>Juazeiro</nome> 
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2715">
+				<nome>Fortaleza</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+		</estado>
+	</GarantiaSafra>
+	<GarantiaSafra registro="201302">
+		<estado sigla="AL">
+			<municipio cod="2713">
+				<nome>BATALHA1</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2714">
+				<nome>BATALHA2</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2715">
+				<nome>BATALHA3</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+		</estado>
+		<estado sigla="CE">
+			<municipio cod="2713">
+				<nome>Caninde</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2714">
+				<nome>Juazeiro</nome> <beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+			<municipio cod="2715">
+				<nome>Fortaleza</nome>
+				<beneficiarios>
+					<beneficiario>
+						<nis>20635826733</nis>
+						<nome>ADELMO DOS SANTOS DA SILVA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+					<beneficiario>
+						<nis>16161064953</nis>
+						<nome>ADELSON DE OLIVEIRA</nome>
+						<valor>135,00</valor>
+					</beneficiario>
+				</beneficiarios>
+			</municipio>
+		</estado>
+	</GarantiaSafra>
+</root>

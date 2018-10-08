@@ -27,7 +27,7 @@ import br.ufc.quixada.persistencia.classes.*;
 public class Main {
 
 	public static void main(String[] args) throws IOException, ParserConfigurationException, TransformerException {
-		String entrada = "GarantiaSafra.csv" ;
+		String entrada = "GarantiaSafra_test.csv" ;
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(entrada)));
 
 		String nomeM="",codM="",estado="",ano="",linha="";

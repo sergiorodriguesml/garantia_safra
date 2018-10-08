@@ -1,6 +1,8 @@
 package br.quixada.ufc.persistencia.api_sax;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -12,43 +14,39 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class SaxAPI extends DefaultHandler {
 
 	private String tagAtual;
-	private String siglaAtual;
+	private String tagPai;
 	private GarantiaSafra safraTemp;
 	private Estado estadoTemp;
 	private Municipio municipioTemp;
 	private Beneficiario beneficiarioTemp;
+	private ArrayList<Beneficiario> beneficiarios;
+	private ArrayList<Municipio> municipios;
+	private ArrayList<Estado> estados;
+	private ArrayList<GarantiaSafra> garantiaSafra;
 
-	/**
-	 * construtor default
-	 */
 	public SaxAPI() {}
+	
+	@Override
+	public String toString() {
+		return "SaxAPI [garantiaSafra=" + garantiaSafra + "]";
+	}
 
-	/**
-	 * Método que executa o parsing: laço automático que varre o documento de
-	 * início ao fim, disparando eventos relevantes
-	 * 
-	 * @param pathArq
-	 */
-	public void fazerParsing(String arquivo) {
+	public void Parsing(String arquivo) {
 
-		// Passo 1: cria instância da classe SAXParser, através da factory
-		// SAXParserFactory
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		SAXParser sp;
 
 		try {
 			sp = spf.newSAXParser();
-
-			// Passo 2: comanda o início do parsing
-			sp.parse(arquivo, this); // o "this" indica que a própria
-			// classe "DevmediaSAX" atuará como
-			// gerenciadora de eventos SAX.
-
-			// Passo 3: tratamento de exceções.
+			sp.parse(arquivo, this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
@@ -58,82 +56,100 @@ public class SaxAPI extends DefaultHandler {
 		}
 	}
 
-	// os métodos startDocument, endDocument, startElement, endElement e
-	// characters, listados a seguir, representam os métodos de call-back da API
-	// SAX
-
-	/**
-	 * evento startDocument do SAX. Disparado antes do processamento da primeira
-	 * linha
-	 */
 	public void startDocument() {
 		System.out.println("\nIniciando o Documento...\n");
+		garantiaSafra = new ArrayList<GarantiaSafra>();
 	}
 
-	/**
-	 * evento endDocument do SAX. Disparado depois do processamento da última
-	 * linha
-	 */
 	public void endDocument() {
 		System.out.println("\nFim do Documento...");
 	}
 
-	/**
-	 * evento startElement do SAX. disparado quando o processador SAX identifica
-	 * a abertura de uma tag. Ele possibilita a captura do nome da tag e dos
-	 * nomes e valores de todos os atributos associados a esta tag, caso eles
-	 * existam.
-	 */
 	public void startElement(String uri, String localName, String qName,
 			Attributes atts) {
 
-		// recupera o nome da tag atual
 		tagAtual = qName;
 
-		// se a tag for "<pais>", recupera o valor do atributo "sigla"
-		if (qName.compareTo("pais") == 0) {
-			siglaAtual = atts.getValue(0);
+		if (qName.equalsIgnoreCase("GarantiaSafra")) {
+			safraTemp = new GarantiaSafra();
+			safraTemp.setRegistro(atts.getValue(0));
+			estados = new ArrayList<Estado>();
+		}
+		else if (qName.equalsIgnoreCase("estado")) {
+			estadoTemp = new Estado();
+			estadoTemp.setSigla(atts.getValue(0));
+			municipios = new ArrayList<Municipio>();
+		}
+		else if (qName.equalsIgnoreCase("municipio")) {
+			tagPai = "municipio";
+			municipioTemp = new Municipio();
+			municipioTemp.setCod(atts.getValue(0));
+			beneficiarios = new ArrayList<Beneficiario>();
+		}
+		else if (qName.equalsIgnoreCase("beneficiario")) {
+			tagPai = "beneficiario";
+			beneficiarioTemp = new Beneficiario();
 		}
 	}
 
-	/**
-	 * evento endElement do SAX. Disparado quando o processador SAX identifica o
-	 * fechamento de uma tag (ex: )
-	 */
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
 
 		tagAtual = "";
+		
+		if (qName.equalsIgnoreCase("GarantiaSafra")) {
+			safraTemp.setEstados(estados);
+			garantiaSafra.add(safraTemp);
+		}
+		else if (qName.equalsIgnoreCase("estado")) {
+			estadoTemp.setMunicipios(municipios);
+			estados.add(estadoTemp);
+		}
+		else if (qName.equalsIgnoreCase("municipio")) {
+			municipioTemp.setBeneficiarios(beneficiarios);
+			municipios.add(municipioTemp);		
+		}
+		else if (qName.equalsIgnoreCase("beneficiario")) {
+			beneficiarios.add(beneficiarioTemp);
+		}
 	}
 
-	/**
-	 * evento characters do SAX. É onde podemos recuperar as informações texto
-	 * contidas no documento XML (textos contidos entre tags). Neste exemplo,
-	 * recuperamos os nomes dos países, a população e a moeda
-	 * 
-	 */
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
 
 		String texto = new String(ch, start, length);
 
-		// ------------------------------------------------------------
-		// --- TRATAMENTO DAS INFORMAÇÕES DE ACORDO COM A TAG ATUAL ---
-		// ------------------------------------------------------------
-
-		if (tagAtual.compareTo("nome") == 0) {
-
-			System.out.print(texto + " - SIGLA: " + siglaAtual);
+		if (tagAtual.equalsIgnoreCase("nome")) {
+			if(tagPai.equalsIgnoreCase("municipio")) municipioTemp.setNome(texto);
+			else if(tagPai.equalsIgnoreCase("beneficiario")) beneficiarioTemp.setNome(texto);
 		}
 
-		if (tagAtual.compareTo("moeda") == 0) {
-
-			System.out.print(" - MOEDA: " + texto);
+		if (tagAtual.equalsIgnoreCase("nis")) {
+			beneficiarioTemp.setNis(texto);
 		}
 
-		if (tagAtual.compareTo("populacao") == 0) {
-
-			System.out.println(" - POPULACAO: " + texto);
+		if (tagAtual.equalsIgnoreCase("valor")) {
+			beneficiarioTemp.setValor(texto);
 		}
 	}
+
+	
+	public void toJason(String arquivo){
+		Parsing(arquivo);
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(new File("resultado.json"), garantiaSafra);
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 }

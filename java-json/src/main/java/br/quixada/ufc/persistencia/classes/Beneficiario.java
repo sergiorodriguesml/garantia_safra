@@ -8,7 +8,6 @@ public class Beneficiario {
 	public Beneficiario(){}
 		
 	public Beneficiario(String nis, String nome, String valor) {
-		super();
 		this.nis = nis;
 		this.nome = nome;
 		this.valor = valor;

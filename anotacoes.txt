@@ -1,0 +1,9 @@
+﻿leganda CSV
+"Ano/Mês";"UF";"Código Município SIAFI";"Nome Município SIAFI";"NIS Beneficiário";"Nome Beneficiário";"Valor Benefício"
+
+xml Schema validation
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="xml_Schema.xsd"
+
+DTD validation
+<!DOCTYPE saida SYSTEM "xml_DTD.dtd">

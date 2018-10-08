@@ -9,7 +9,6 @@ public class GarantiaSafra {
 	public GarantiaSafra() {}
 
 	public GarantiaSafra(String registro, ArrayList<Estado> estados) {
-		super();
 		this.registro = registro;
 		this.estados = estados;
 	}
